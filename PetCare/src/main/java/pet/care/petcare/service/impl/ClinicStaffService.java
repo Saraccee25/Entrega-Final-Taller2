@@ -24,7 +24,6 @@ public class ClinicStaffService extends UserService<ClinicStaff>{
         }
         checkExistence(entity.getUsername(), entity.getUserId());
         entity.setRole("CLINIC_STAFF");
-        entity.setPassword(this.cryptPasswordEncoder.encode(entity.getPassword()));
         return clinicStaffRepository.save(entity);
     }
 
@@ -63,9 +62,6 @@ public class ClinicStaffService extends UserService<ClinicStaff>{
             }
             if (entity.getUsername() != null){
                 clinicStaff.setUsername(entity.getUsername());
-            }
-            if (entity.getPassword() != null){
-                clinicStaff.setPassword(this.cryptPasswordEncoder.encode(entity.getPassword()));
             }
             clinicStaff.setRole("CLINIC_STAFF");
             return clinicStaffRepository.save(clinicStaff);
