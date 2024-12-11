@@ -1,14 +1,11 @@
 package pet.care.petcare.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import pet.care.petcare.entity.UserEntity;
 import pet.care.petcare.repository.IUserRepository;
 
 public abstract class UserService<S extends UserEntity> implements ICRUDService<S> {
-    protected BCryptPasswordEncoder cryptPasswordEncoder = new BCryptPasswordEncoder(12);
-
     @Autowired
     private IUserRepository userRepository;
     

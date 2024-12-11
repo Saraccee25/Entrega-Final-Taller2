@@ -23,7 +23,6 @@ public class ClientService extends IClientService {
         }
         checkExistence(entity.getUsername(), entity.getUserId());
         entity.setRole("CLIENT");
-        entity.setPassword(this.cryptPasswordEncoder.encode(entity.getPassword()));
         return clientRepository.save(entity);
     }
 
@@ -62,9 +61,6 @@ public class ClientService extends IClientService {
             }
             if (entity.getUsername() != null){
                 client.setUsername(entity.getUsername());
-            }
-            if (entity.getPassword() != null){
-                client.setPassword(this.cryptPasswordEncoder.encode(entity.getPassword()));
             }
             client.setRole("CLIENT");
             return clientRepository.save(client);

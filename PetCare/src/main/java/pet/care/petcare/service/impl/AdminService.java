@@ -23,7 +23,6 @@ public class AdminService extends UserService<AdminEntity> {
         }
         checkExistence(entity.getUsername(), entity.getUserId());
         entity.setRole("ADMIN");
-        entity.setPassword(this.cryptPasswordEncoder.encode(entity.getPassword()));
         return adminRepository.save(entity);
     }
 
@@ -62,9 +61,6 @@ public class AdminService extends UserService<AdminEntity> {
             }
             if (entity.getUsername() != null){
                 adminEntity.setUsername(entity.getUsername());
-            }
-            if (entity.getPassword() != null){
-                adminEntity.setPassword(this.cryptPasswordEncoder.encode(entity.getPassword()));
             }
             adminEntity.setRole("ADMIN");
             return adminRepository.save(adminEntity);
