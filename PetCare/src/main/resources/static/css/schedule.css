@@ -1,0 +1,183 @@
+:root {
+    --color-pink: #F7C8E0;
+    --color-green: #DFFFD8;
+    --color-light-blue: #B4E4FF;
+    --color-blue: #95BDFF;
+    --color-light-yellow: #FFF9D8;
+    --color-light-purple: #B1AFFF;
+    --color-light-panel: #e3f2fd;
+}
+
+.sidebar-panel {
+    background-color: var(--color-light-panel);
+    border-right: 1px solid #ddd;
+    min-height: 100%;
+}
+
+.sidebar-panel h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vet-card {
+    cursor: move;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vet-card:active {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: shake 0.3s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+}
+
+.schedule-table {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schedule-table th, .schedule-table td {
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    font-size: 1rem;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #eee;
+}
+
+.slot-filled {
+    background-color: #f5c6cb;
+    color: #721c24;
+    font-weight: bold;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 56px;
+}
+
+.navbar {
+    background-color: var(--color-blue);
+}
+
+.navbar-brand {
+    color: black !important;
+    font-weight: bold;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.btn-outline-light:hover {
+    color: var(--color-blue);
+}
+
+.nav-link {
+    color: #333;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: var(--color-light-blue);
+    color: white;
+}
+
+.nav-link i {
+    margin-right: 0.5rem;
+}
+
+main {
+    padding-top: 48px;
+}
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-card {
+    background-color: white;
+    color: #333;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-card:hover {
+    background-color: #f8f9fa;
+}
+
+.pt-4 {
+    padding-top: 0rem !important;
+}
+
+.mt-5 {
+    margin-top: 0rem !important;
+}
+
+.btn-generate-schedule {
+    background-color: var(--color-schedule-btn);
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-generate-schedule:hover {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.schedule-cell {
+    font-weight: normal;
+}
+
+#vet-list {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+#vet-list::-webkit-scrollbar {
+  width: 0px;
+}
+
+#vet-list::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+#vet-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#vet-list {
+  scrollbar-width: none;
+}
+
+
+
+

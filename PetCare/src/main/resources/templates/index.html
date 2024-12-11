@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetCare - Veterinary Clinic</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+                    src="/img/logo.png"
+                    alt="Logo"
+                    width="40"
+                    height="40"
+                    class="d-inline-block align-text-top me-2"
+            />
+            <span class="fw-bold">PetCare</span>
+        </a>
+        <div class="ms-auto d-flex">
+            <a class="btn btn-outline-light me-2" href="http://localhost:8080/public/login">
+                <i class="fas fa-sign-in-alt me-2"></i>Log In
+            </a>
+            <a class="btn btn-outline-light" href="http://localhost:8080/public/register">
+                <i class="fas fa-user-plus me-2"></i>Sign Up
+            </a>
+        </div>
+    </div>
+</nav>
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h1 class="display-4 fw-bold mb-4">
+                        We take care of your pets as if they were our own
+                    </h1>
+                    <p class="lead mb-4">
+                        Quality veterinary services for the well-being of your furry
+                        companions
+                    </p>
+                    <a href="http://localhost:8080/public/login" class="btn d-inline-flex align-items-center"
+                       style="background-color: var(--color-pink); color: #333; font-weight: 500; padding: 8px 20px; border-radius: 30px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); margin-left: 0; transition: transform 0.2s;">
+                        <i class="bi bi-calendar-check me-2" style="font-size: 1.1rem;"></i> Book Your Appointment
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <img
+                            src="/img/pets4.jpg"
+                            alt="Happy Pet"
+                            class="img-fluid rounded-3 shadow"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5" id="services">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div
+                            class="card h-100 service-card"
+                            style="background-color: var(--color-pink)"
+                    >
+                        <div class="card-body">
+                            <i class="fas fa-stethoscope fa-3x mb-3"></i>
+                            <h3 class="card-title h5 mb-3">General Consultations</h3>
+                            <p class="card-text">
+                                Routine check-ups and primary care for your pets
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div
+                            class="card h-100 service-card"
+                            style="background-color: var(--color-green)"
+                    >
+                        <div class="card-body">
+                            <i class="fas fa-syringe fa-3x mb-3"></i>
+                            <h3 class="card-title h5 mb-3">Vaccination</h3>
+                            <p class="card-text">
+                                We keep your pets protected against common diseases
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div
+                            class="card h-100 service-card"
+                            style="background-color: var(--color-light-blue)"
+                    >
+                        <div class="card-body">
+                            <i class="fas fa-user-md fa-3x mb-3"></i>
+                            <h3 class="card-title h5 mb-3">Surgery</h3>
+                            <p class="card-text">
+                                Advanced surgical procedures with post-operative care
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div
+                            class="card h-100 service-card"
+                            style="background-color: var(--color-light-purple)"
+                    >
+                        <div class="card-body">
+                            <i class="fas fa-cut fa-3x mb-3"></i>
+                            <h3 class="card-title h5 mb-3">Pet Grooming</h3>
+                            <p class="card-text">
+                                Bathing and grooming services to keep your pets clean and
+                                fresh
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light" id="testimonials">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Clients Say</h2>
+            <div
+                    id="testimonialCarousel"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+            >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    "PetCare helped our pig recover from surgery. The staff
+                                    was so caring and professional!"
+                                </p>
+                                <h5 class="card-title">- Emma & Max</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    "Thanks to PetCare, our goat is healthier and happier than
+                                    ever!"
+                                </p>
+                                <h5 class="card-title">- Liam & Luna</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    "I trust PetCare with all of my pets. They always go above
+                                    and beyond."
+                                </p>
+                                <h5 class="card-title">- Sarah & Rocky</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#testimonialCarousel"
+                        data-bs-slide="prev"
+                >
+                <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true"
+                ></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#testimonialCarousel"
+                        data-bs-slide="next"
+                >
+                <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true"
+                ></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Us</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="icon-bg" style="background-color: var(--color-pink)">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <h3 class="h5 mb-3">Experience</h3>
+                    <p>Many years caring for pets</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="icon-bg" style="background-color: var(--color-green)">
+                        <i class="fas fa-bolt fa-2x"></i>
+                    </div>
+                    <h3 class="h5 mb-3">Technology</h3>
+                    <p>State-of-the-art equipment</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div
+                            class="icon-bg"
+                            style="background-color: var(--color-light-blue)"
+                    >
+                        <i class="fas fa-heart fa-2x"></i>
+
+                    </div>
+                    <h3 class="h5 mb-3">Compassion</h3>
+                    <p>We treat each pet with love</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-white" id="faq">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="h5 mb-0">What kind of pets do you attend?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We care for exotic pets such as mini pigs, rabbits, goats, fish, birds, snakes, wolves...</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="h5 mb-0">How often should I bring my pet for a check-up?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend bringing your pet for a check-up at least once a year. However, the frequency may vary depending on your pet's age, health condition, and lifestyle.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="h5 mb-0">Do you offer emergency services?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide emergency veterinary services. In case of an emergency, please call our clinic immediately (during work shedule).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="h5 mb-0">What is your shedule?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our schedule is from Monday to Saturday, 8am to 9pm each day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Location</h2>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="embed-responsive" style="position: relative; overflow: hidden; padding-top: 56.25%;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.383575463126!2d-75.5798272886335!3d6.213037693748909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429d458b9e19b%3A0xa41de7af3f199040!2sPolit%C3%A9cnico%20Colombiano%20Jaime%20Isaza%20Cadavid%20Sede%20Medell%C3%ADn!5e0!3m2!1ses!2sco!4v1730821050436!5m2!1ses!2sco"
+                                style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                <img
+                        src="/img/logo.png"
+                        alt="Logo"
+                        width="40"
+                        height="40"
+                        class="d-inline-block align-text-top me-2"
+                />
+                <span class="fw-bold">PetCare</span>
+            </div>
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+                <a
+                        href="https://www.facebook.com/?locale=es_LA"
+                        target="blank"
+                        class="social-icon"
+                >
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a
+                        href="https://www.instagram.com"
+                        target="blank"
+                        class="social-icon"
+                >
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                        href="https://x.com/twitter?lang=es"
+                        target="blank"
+                        class="social-icon"
+                >
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <div class="col-md-4 text-center text-md-end">
+                <p class="mb-0">&copy; 2024 PetCare. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<a href="https://wa.me/3016393707" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets - PetCare</title>
+    <link rel="icon" href="/img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/indexAdmin.css">
+    <link rel="stylesheet" href="/css/notification.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="http://localhost:8080/client-panel">
+            <img src="/img/logo.png" alt="PetCare Logo" class="me-2">
+            PetCare
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <div class="btn-group dropstart">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="position: relative;">
+                            <i class="bi bi-bell"></i>
+                            <span style="display: none;" class="badge text-bg-primary rounded-pill notification-badge"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="max-height: 300px; max-width: 300px; overflow-y: auto; overflow-x: hidden;">
+                            <li th:each="notification, iter : ${notifications}" th:id="'notification-'" th:data-id="${notification.id}">
+                                <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" 
+                                    style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 100%;">
+                                    <strong th:text="${notification.message}" style="display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                                        Notification Message
+                                    </strong>
+                                    <span class="time-elapsed" th:data-date="${notification.date}" th:data-time="${notification.time}">
+                                    </span>
+                                    <button type="button" class="close-btn" 
+                                        style="border: none; background: none; color: red; font-weight: bold; margin-left: 10px;">
+                                        &times;
+                                    </button>
+                                    <br>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-gear"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse" id="sidebarMenu">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/client-panel">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/client-panel/profile">
+                            <i class="bi bi-person"></i> My Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="http://localhost:8080/client-panel/pets">
+                            <i class="bi bi-heart-pulse"></i> Pets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/client-panel/appointments">
+                            <i class="bi bi-calendar-check"></i> Appointments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8080/client-panel/pets-recipes">
+                            <i class="bi bi-capsule"></i> Pets Recipes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <h1>Your pets</h1><br>
+                <label>Required Fields <span style="color: red;">*</span></label>
+                <p></p>
+                <form id="petForm" class="mb-3" enctype="multipart/form-data">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <label for="petName">Pet Name <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="petName" name="name" placeholder="Enter pet name here" required>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="petLastname">Pet Lastname <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="petLastname" name="lastname" placeholder="Enter pet name here" required>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="petAge">Pet Birthdate <span style="color: red;">*</span></label>
+                            <input type="date" class="form-control" id="petAge" name="age" placeholder="Enter pet birthdate here" required max="{{ currentDate }}">
+                        </div>
+                        
+                        <div class="col-12 col-md-4">
+                            <label for="petRace">Pet Race <span style="color: red;">*</span></label>
+                            <select class="form-control" id="petRace" name="race" required>
+                                <option value="">Select pet race</option>
+                                <option value="Lovebird">Lovebird</option>
+                                <option value="Nymph">Nymph</option>
+                                <option value="Kramer">Kramer</option>
+                                <option value="Rosella">Rosella</option>
+                                <option value="Ferret">Ferret</option>
+                                <option value="Hedgehog">Hedgehog</option>
+                                <option value="Mini Pig">Mini Pig</option>
+                                <option value="Chameleon">Chameleon</option>
+                                <option value="Ornamental Fish">Ornamental Fish</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="petWeight">Pet Weight <span style="color: red;">*</span></label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="petWeight" name="weight" placeholder="Enter pet weight here" required min="0.1" step="0.1">
+                                <select class="form-select" id="weightUnit" style="max-width: 120px;">
+                                    <option value="kg">kg</option>
+                                    <option value="g">g</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-1">
+                            <label for="petSex">Sex <span style="color: red;">*</span></label>
+                            <select class="form-control" id="petSex" name="sex" required>
+                                <option value="" disabled selected>Select pet sex</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Not Applicable">Not Applicable</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12 col-md-4 mb-3">
+                            <label for="petImage">Upload Pet Image <span style="color: red;">*</span></label>
+                            <div class="input-group">
+                                <button type="button" class="btn btn-info" style="background-color: #95BDFF;" id="uploadButton">Select Image</button>
+                                <input type="file" class="form-control" id="petImage" name="image" accept="image/*" style="display: none;" required>
+                                <input type="text" class="form-control" id="fileNameDisplay" placeholder="No file chosen" readonly>
+                            </div>
+                        </div>
+                        
+                        <span id="userId" th:text="${userId}" style="display: none;"></span>
+                        <input type="hidden" name="ownerId" id="ownerId" value="" />
+                        
+                    </div>
+                    <hr>
+                    <div class="row g-3">
+                        <div class="col-auto d-grid">
+                            <button type="submit" class="btn btn-primary">Add Pet</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Weight</th>
+                            <th>Race</th>
+                            <th>Sex</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody id="myPetList">
+                        </tbody>
+                    </table>
+                </div>
+        </main>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/myPets.js"></script>
+<script src="/js/notificationCount.js"></script>
+</body>
+</html>

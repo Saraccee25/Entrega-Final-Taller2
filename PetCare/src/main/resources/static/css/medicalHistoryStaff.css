@@ -1,0 +1,156 @@
+  :root {
+            --color-pink: #F7C8E0;
+            --color-green: #DFFFD8;
+            --color-light-blue: #B4E4FF;
+            --color-blue: #95BDFF;
+            --color-light-purple: #B1AFFF;
+        }
+
+        .accordion {
+            background-color: var(--color-pink);
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .accordion::after {
+            content: '▼';
+            font-size: 1em;
+            position: absolute;
+            right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion.active::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion:hover {
+            background-color: var(--color-light-blue);
+        }
+
+        .accordion.active {
+            background-color: var(--color-blue);
+            color: white;
+        }
+
+        .panel {
+            padding: 15px;
+            display: none;
+            background-color: var(--color-green);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .panel p {
+            margin: 0;
+            color: #333;
+        }
+
+        #accordionTreatmentsCustom .accordion-item-custom {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        #accordionTreatmentsCustom .accordion-header-custom {
+            font-size: 1rem;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        #accordionTreatmentsCustom .accordion-header-custom button {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: left;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: normal;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.1s ease;
+        }
+
+        #accordionTreatmentsCustom .accordion-header-custom button:focus,
+        #accordionTreatmentsCustom .accordion-header-custom button:not(.collapsed) {
+            background-color: #e0e0e0;
+        }
+
+        #accordionTreatmentsCustom .accordion-collapse-custom {
+            padding: 8px 12px;
+            display: none;
+            transition: max-height 0.1s ease-in-out;
+
+        }
+
+        #accordionTreatmentsCustom .accordion-collapse-custom.show {
+            display: block;
+            transition: max-height 0.04s ease-in;
+
+        }
+
+        #accordionTreatmentsCustom .accordion-body-custom {
+            padding: 8px 0;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .accordion-icon {
+            width: 10px;
+            height: 10px;
+            border-style: solid;
+            border-width: 2px 2px 0 0;
+            transform: rotate(135deg);
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+
+        #accordionButtonTreatments[aria-expanded="true"] .accordion-icon {
+            transform: rotate(-45deg);
+        }
+
+        .medication-list-dose {
+            margin-left: 22px;
+        }
+
+        .client-information {
+            margin-left: 22px;
+        }
+
+        .download-container {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .download-btn {
+            background-color: #95BDFF;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            box-shadow: none;
+        }
+
+        .download-btn:hover {
+            background-color: #f1a8c1;
+        }
